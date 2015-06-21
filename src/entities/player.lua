@@ -19,7 +19,7 @@ end
 function Player:reset()
 	self.x = love.graphics.getWidth() / 2
 	self.y = love.graphics.getHeight() / 2
-	self.speed = 100
+	self.speed = 250
 end
 
 -- Player keybinds
