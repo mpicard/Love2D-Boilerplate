@@ -1,2 +1,2 @@
-# Purpose
-All SFX goes here.
+# PURPOSE
+SFX go in here.

@@ -1,2 +1,2 @@
-# Purpose
-All third-party libs go here.
+# PURPOSE
+Custom libraries go in here.

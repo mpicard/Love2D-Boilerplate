@@ -24,14 +24,28 @@ end
 
 -- Player keybinds
 function Player:update(dt)
+	-- Set game type
+	local isPlatformer = false
+	local isTopDown = true
+	local isRPG = false
+
+	-- Define player keybinds
 	if love.keyboard.isDown("left") then
-		self.x = self.x - (self.speed * dt)
+		if self.x > 0 then
+			self.x = self.x - (self.speed * dt)
+		end
 	elseif love.keyboard.isDown("right") then
-		self.x = self.x + (self.speed * dt)
-	elseif love.keyboard.isDown("up") then
-		self.y = self.y - (self.speed * dt)
-	elseif love.keyboard.isDown("down") then
-		self.y = self.y + (self.speed * dt)
+		if self.x < (love.graphics.getWidth() - playerImg:getWidth()) then
+			self.x = self.x + (self.speed * dt)
+		end
+	elseif love.keyboard.isDown("up") and isTopDown == true then
+		if self.y > 0 then
+			self.y = self.y - (self.speed * dt)
+		end
+	elseif love.keyboard.isDown("down") and isTopDown == true then
+		if self.y < (love.graphics.getHeight() - playerImg:getHeight()) then
+			self.y = self.y + (self.speed * dt)
+		end
 	elseif love.keyboard.isDown("escape") then
 		love.event.push("quit")
 	end

@@ -1,2 +1,2 @@
-# Purpose
-Place all fonts here.
+# PURPOSE
+Fonts go in here.

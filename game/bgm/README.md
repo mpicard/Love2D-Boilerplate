@@ -1,2 +1,2 @@
-# Purpose
-Place all BGM's here.
+# PURPOSE
+Music/BGMs go in here.

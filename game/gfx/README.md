@@ -1,2 +1,2 @@
-# Purpose
-All GFX goes here.
+# PURPOSE
+GFX go in here.
