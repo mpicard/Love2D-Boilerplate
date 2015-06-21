@@ -10,7 +10,11 @@ LIBPATH = "libs"
 LIBPATH = LIBPATH .. "."
 
 -- Call required libs manually
+Gamestate = require(LIBPATH .. "hump.gamestate")
 local debugging = require(LIBPATH .. "debugging")
+
+-- Set cutom variables
+MOUSE_ENABLED = false
 
 -- Create a proxy via rawset
 -- by vrld | https://github.com/vrld/Princess/blob/master/main.lua
@@ -57,25 +61,18 @@ function love.load()
 	-- Load important stuff
 	math.randomseed(os.time())
 	love.graphics.setDefaultFilter("nearest", "nearest")
+	love.mouse.setVisible(MOUSE_ENABLED)
 	recursiveRequire("src")
-	--Gamestate.registerEvents()
-	--Gamestate.switch(Menu)
-	-- Create the player
-	pl = Player.create()
+
+	-- Initialize Gamestates
+	Gamestate.registerEvents()
+	Gamestate.switch(Game)
 end
 
 -- Game Logic
 function love.update(dt)
-	-- Update the player using it's own update method
-	pl:update(dt)
 end
 
 -- Asset Rendering
 function love.draw()
-	-- Call debug functions from sometext.lua
-	printStatus()
-	printFPS()
-
-	-- Draw player
-	pl:draw()
 end
