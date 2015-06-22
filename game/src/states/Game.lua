@@ -4,7 +4,6 @@
 local timer = require(LIBPATH .. "hump.timer")
 
 -- Create new gamestate
---Game = Gamestate.new()
 Game = {}
 
 -- Initialize stage

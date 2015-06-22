@@ -10,11 +10,10 @@ LIBPATH = "libs"
 LIBPATH = LIBPATH .. "."
 
 -- Call required libs manually
-Gamestate = require(LIBPATH .. "hump.gamestate")
-local debugging = require(LIBPATH .. "debugging")
-
--- Set cutom variables
-MOUSE_ENABLED = false
+Gamestate = require( LIBPATH .. "hump.gamestate" )
+UI = require( LIBPATH .. "ui/UI" )
+TestTheme = require "TestTheme"
+local debugging = require( LIBPATH .. "debugging" )
 
 -- Create a proxy via rawset
 -- by vrld | https://github.com/vrld/Princess/blob/master/main.lua
@@ -61,12 +60,12 @@ function love.load()
 	-- Load important stuff
 	math.randomseed(os.time())
 	love.graphics.setDefaultFilter("nearest", "nearest")
-	love.mouse.setVisible(MOUSE_ENABLED)
 	recursiveRequire("src")
 
 	-- Initialize Gamestates
 	Gamestate.registerEvents()
-	Gamestate.switch(Game)
+	UI.registerEvents()
+	Gamestate.switch(Menu)
 end
 
 -- Game Logic
