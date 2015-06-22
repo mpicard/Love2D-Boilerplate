@@ -5,7 +5,6 @@
 
 Player = {}
 Player.__index = Player
-playerImg = love.graphics.newImage("gfx/player.png")
 
 -- Function to create the player
 function Player.create()
@@ -35,7 +34,7 @@ function Player:update(dt)
 			self.x = self.x - (self.speed * dt)
 		end
 	elseif love.keyboard.isDown("right") then
-		if self.x < (love.graphics.getWidth() - playerImg:getWidth()) then
+		if self.x < (love.graphics.getWidth() - Image.player:getWidth()) then
 			self.x = self.x + (self.speed * dt)
 		end
 	elseif love.keyboard.isDown("up") and isTopDown == true then
@@ -43,7 +42,7 @@ function Player:update(dt)
 			self.y = self.y - (self.speed * dt)
 		end
 	elseif love.keyboard.isDown("down") and isTopDown == true then
-		if self.y < (love.graphics.getHeight() - playerImg:getHeight()) then
+		if self.y < (love.graphics.getHeight() - Image.player:getHeight()) then
 			self.y = self.y + (self.speed * dt)
 		end
 	elseif love.keyboard.isDown("escape") then
@@ -53,5 +52,5 @@ end
 
 -- Player draws
 function Player:draw()
-	love.graphics.draw(playerImg, self.x, self.y)
+	love.graphics.draw(Image.player, self.x, self.y)
 end

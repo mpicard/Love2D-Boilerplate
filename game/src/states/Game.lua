@@ -21,7 +21,8 @@ function Game:draw()
 	-- Draw player
 	pl:draw()
 
-	-- Draw debugging tools
-	printStatus()
-	printFPS()
+	-- Call debugging tools is set to true
+	if isDebug == true then
+		debugAll()
+	end
 end

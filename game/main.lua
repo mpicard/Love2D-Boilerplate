@@ -5,15 +5,20 @@
 -- https://github.com/headchant/love-boilerplate/
 --
 
--- Set libs path
+-- Set paths
 LIBPATH = "libs"
 LIBPATH = LIBPATH .. "."
+THEMEPATH = "themes"
+THEMEPATH = THEMEPATH .. "."
+isDebug = true
 
 -- Call required libs manually
-Gamestate = require( LIBPATH .. "hump.gamestate" )
-UI = require( LIBPATH .. "ui/UI" )
-TestTheme = require "TestTheme"
-local debugging = require( LIBPATH .. "debugging" )
+require(LIBPATH .. "init")
+
+-- Call debug if set to true
+if isDebug == true then
+	local debugging = require( LIBPATH .. "debugging" )
+end
 
 -- Create a proxy via rawset
 -- by vrld | https://github.com/vrld/Princess/blob/master/main.lua

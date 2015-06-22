@@ -13,9 +13,9 @@ function Menu:init()
 	love.graphics.setBackgroundColor(bgColor)
 
 	-- Create buttons
-	newGame 	= UI.Button( (W / 3) - 20, H / 2 + 50, 300, 50, 			{ extensions = { TestTheme.Button }, draggable = false })
-	loadGame 	= UI.Button( (W / 3) - 20, newGame.y + 80, 300, 50, 	{ extensions = { TestTheme.Button }, draggable = false })
-	options 	= UI.Button( (W / 3) - 20, newGame.y + 160, 300, 50, 	{ extensions = { TestTheme.Button }, draggable = false })
+	newGame 	= UI.Button( (W / 3) - 20, H / 2 + 50, 300, 50, 			{ extensions = { DefaultTheme.Button }, draggable = false })
+	loadGame 	= UI.Button( (W / 3) - 20, newGame.y + 80, 300, 50, 	{ extensions = { DefaultTheme.Button }, draggable = false })
+	options 	= UI.Button( (W / 3) - 20, newGame.y + 160, 300, 50, 	{ extensions = { DefaultTheme.Button }, draggable = false })
 end
 
 -- Main Menu Logic
