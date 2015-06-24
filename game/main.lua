@@ -8,17 +8,9 @@
 -- Set paths
 LIBPATH = "libs"
 LIBPATH = LIBPATH .. "."
-THEMEPATH = "themes"
-THEMEPATH = THEMEPATH .. "."
-isDebug = true
 
 -- Call required libs manually
 require(LIBPATH .. "init")
-
--- Call debug if set to true
-if isDebug == true then
-	local debugging = require( LIBPATH .. "debugging" )
-end
 
 -- Create a proxy via rawset
 -- by vrld | https://github.com/vrld/Princess/blob/master/main.lua
@@ -31,13 +23,11 @@ local function Proxy(f)
 end
 
 -- Standard proxies
-
 -- [[ Usage:
 -- love.graphics.draw(Image.background)
 -- or
 -- Sfx.explosion:play()
 -- ]]
-
 Image 	= Proxy(function(k) return love.graphics.newImage('gfx/' .. k .. '.png') end)
 Sfx 		= Proxy(function(k) return love.audio.newSource('sfx' .. k .. '.ogg', 'static') end)
 Music 	= Proxy(function(k) return love.audio.newSource('bgm' .. k .. '.ogg', 'stream') end)
@@ -61,7 +51,7 @@ local function extractFileName(str)
 end
 
 -- Initialization
-function love.load()
+function love.load(arg)
 	-- Load important stuff
 	math.randomseed(os.time())
 	love.graphics.setDefaultFilter("nearest", "nearest")
@@ -69,14 +59,5 @@ function love.load()
 
 	-- Initialize Gamestates
 	Gamestate.registerEvents()
-	UI.registerEvents()
-	Gamestate.switch(Menu)
-end
-
--- Game Logic
-function love.update(dt)
-end
-
--- Asset Rendering
-function love.draw()
+	Gamestate.switch(Game)
 end
