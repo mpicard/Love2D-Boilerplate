@@ -9,6 +9,10 @@
 LIBPATH = "libs"
 LIBPATH = LIBPATH .. "."
 
+-- Map Path
+MAPPATH = "src/maps"
+MAPPATH = MAPPATH .. "."
+
 -- Call required libs manually
 require(LIBPATH .. "init")
 

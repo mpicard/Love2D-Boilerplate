@@ -2,4 +2,5 @@
 Gamestate = require(LIBPATH .. "hump.gamestate")
 tween 		= require(LIBPATH .. "tween")
 bump 			= require(LIBPATH .. "bump")
-gamera 		= require(LIBPATH .. "gamera")
+--gamera 		= require(LIBPATH .. "gamera")
+sti 			= require(LIBPATH .. "STI")
